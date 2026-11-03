@@ -1,0 +1,41 @@
+/*
+ * Top-of-page progress bar for client-side navigation. Hidden by default; the
+ * router only reveals it when a page takes longer than a moment to arrive, so
+ * cached and prefetched clicks stay silent.
+ */
+#nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20; /* above the sticky #header */
+  width: 0;
+  height: 2px;
+  background: var(--purple);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*
+ * Creeps toward 80% and stalls there — it can't know the real percentage, only
+ * that something is still in flight.
+ */
+#nav-progress.loading {
+  width: 80%;
+  opacity: 1;
+  transition: width 4s cubic-bezier(0.1, 0.85, 0.2, 1);
+}
+
+#nav-progress.done {
+  width: 100%;
+  opacity: 0;
+  transition:
+    width 0.15s ease-out,
+    opacity 0.25s ease-out 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #nav-progress.loading,
+  #nav-progress.done {
+    transition: opacity 0.1s linear;
+  }
+}

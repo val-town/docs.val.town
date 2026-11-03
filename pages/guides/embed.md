@@ -1,0 +1,63 @@
+---
+title: Embedding Vals in other sites
+description: Any val can be embedded as an iframe on other sites
+updated: 2023-12-15
+---
+
+Vals are made to be shared, and not just on Val Town! Public vals can embedded
+using iframes on other websites.
+
+## Embedding an existing val
+
+You can embed any public or unlisted val on another site by copying the embed
+URL from the file menu:
+
+![copy.png](/images/guides-embed-adda3903.webp)
+
+### Embedding in WYSIWYG editors
+
+When writing for the web, lots of people use WYSIWYG editors, such as those in
+Wordpress or Notion. In tools with a simple writing experience, you can paste
+your embed URL straight in. Here's how it looks when pasted into Notion:
+
+![Notion Embed](/images/guides-embed-b246a868.webp)
+
+In other editors, you might have to create an "embed" and paste the URL into the
+form that the tool provides.
+
+### Embedding in HTML
+
+For sites that don't provide an editing experience as smooth as Notion or
+Wordpress, you can embed your val using an
+[iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+element.
+
+Here's an example, using a web page created by a val that embeds itself:
+
+<iframe src="https://www.val.town/embed/x/valdottown/hello-embed/embed-self.tsx" class="val-embed" loading="lazy"></iframe>
+
+And here's the final web page:
+[https://docs-embed.val.run/](https://docs-embed.val.run/)
+
+## Embedding a new val template
+
+In some scenarios, especially those where you're providing a guide or a post
+that the reader is following along with, it's useful to provide a template for
+your readers to remix. You can do that using the
+[https://val.town/embed/new](https://val.town/embed/new) endpoint. To generate a
+new val:
+
+1. Visit [https://val.town/embed/new](https://val.town/embed/new)
+2. Type the code that you want to appear
+3. Copy the new URL of the page you are on
+
+_Note: anyone can see the embed and the code, but only logged in users will be
+able to run it._
+
+Here's an example:
+
+<iframe src="https://www.val.town/embed/new?code=const+myNewEmbeddedVal+%3D+%60The+time+this+ran+was+%24%7Bnew+Date%28%29.toLocaleTimeString%28%29%7D%60%3B" class="val-embed" loading="lazy"></iframe>
+
+The URL contains the fragment of code that populates the embed. For example, for
+the embed above, the URL you would use is
+[https://www.val.town/embed/new?code=const+myNewEmbeddedVal+%3D+`The+time+this+ran+was+%24{new+Date().toLocaleTimeString()}`%3B](https://www.val.town/embed/new?code=const+myNewEmbeddedVal+%3D+%60The+time+this+ran+was+%24%7Bnew+Date%28%29.toLocaleTimeString%28%29%7D%60%3B)

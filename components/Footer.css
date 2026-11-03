@@ -1,0 +1,28 @@
+#footer {
+  grid-area: footer;
+  max-width: var(--content-max-width);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-top: 2px solid var(--beige);
+  border-right: 2px solid var(--beige);
+  font-style: italic;
+
+  svg {
+    flex-shrink: 0;
+    transform: skewX(-12deg);
+    transform-origin: center;
+  }
+
+  @media (max-width: 600px) {
+    span {
+      display: none;
+    }
+
+    a {
+      text-transform: capitalize;
+    }
+  }
+}

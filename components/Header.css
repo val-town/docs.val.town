@@ -1,0 +1,36 @@
+#header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--header-h);
+  display: flex;
+  padding: 16px 20px;
+  background: var(--white);
+  border-bottom: 2px solid var(--beige);
+
+  button {
+    padding: unset;
+    background: unset;
+    border: unset;
+    margin-left: -4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--beige);
+    }
+
+    &[popovertarget] {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: inline-flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+---
+title: RSS
+description: Val Town can both parse and generate RSS feeds for blogs and other updated sources
+updated: 2023-12-05
+---
+
+Val Town can both parse and generate [RSS](https://en.wikipedia.org/wiki/RSS) feeds for blogs and other updated sources.
+
+## Polling RSS
+
+You would run this example in Val Town using a [Cron trigger](/vals/cron)
+that ran on a regular interval, and it would check a blog's feed every 15 minutes.
+
+```ts
+import { email } from "https://esm.town/v/std/email?v=9";
+import { newRSSItems } from "https://esm.town/v/stevekrouse/newRSSItems";
+import { rssFeeds } from "https://esm.town/v/stevekrouse/rssFeeds";
+
+export async function pollRSSFeeds({ lastRunAt }: Interval) {
+  return Promise.all(
+    Object.entries(rssFeeds).map(async ([name, url]) => {
+      let items = await newRSSItems({
+        url,
+        lastRunAt,
+      });
+      if (items.length)
+        await email({
+          text: JSON.stringify(items, null, 2),
+          subject: `New from ${name} RSS`,
+        });
+      return { name, items };
+    })
+  );
+}
+```
+
+## Creating RSS
+
+<iframe src="https://www.val.town/embed/maxm/rssFeedExample" class="val-embed" loading="lazy"></iframe>

@@ -1,0 +1,21 @@
+import { Hono } from "hono";
+import { trimTrailingSlash } from "hono/trailing-slash";
+import { llmsFull, llmsTxt, robots, sitemap } from "./routes/metadata";
+import { openapi } from "./routes/openapi";
+import { htmlPage, notFound, rawMarkdown } from "./routes/pages";
+import { legacyRedirects } from "./routes/redirects";
+import { source } from "./routes/source";
+
+const app = new Hono();
+app.use(trimTrailingSlash({ alwaysRedirect: true }));
+app.use("*", legacyRedirects);
+app.get("/llms.txt", llmsTxt);
+app.get("/llms-full.txt", llmsFull);
+app.get("/robots.txt", robots);
+app.get("/sitemap.xml", sitemap);
+app.get("/openapi", openapi);
+app.get("/source", source);
+app.get("/:path{.+\\.md}", rawMarkdown);
+app.get("/:path{.*}", htmlPage);
+app.notFound(notFound);
+export default app;

@@ -1,0 +1,141 @@
+---
+title: Usage
+description: How to use Val Town SQLite, with examples
+updated: 2026-09-10
+---
+
+The Val Town [SQLite val](https://www.val.town/v/std/sqlite) has two methods:
+`execute` [↗](https://docs.turso.tech/sdk/ts/reference#simple-query) and `batch`
+[↗](https://docs.turso.tech/sdk/ts/reference#batch-transactions). Below are
+examples of how to use them in Val Town.
+
+The `sqlite` object is an initialized
+[@libsql/client](https://docs.turso.tech/sdk/ts/reference) instance, so it
+supports the same methods and return types. The query language syntax is
+[SQLite's version of SQL](https://www.sqlite.org/lang.html).
+
+## Simple query
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+const data = await sqlite.execute("SELECT datetime();");
+console.log(data.rows[0]);
+```
+
+> Omitting `main.ts` in your import path (i.e.
+> `"https://esm.town/v/std/sqlite"`) will import the
+> [account-scoped](#account-scoped-database) `sqlite` object.
+
+## Account-scoped database
+
+Importing from `sqlite/main.ts` connects you to a database specific to that val.
+You can also connect with `sqlite/global.ts` to connect to your account-scoped
+database:
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/global.ts";
+
+const data = await sqlite.execute("SELECT datetime();");
+console.log(data.rows[0]);
+```
+
+See our [global](/reference/std/sqlite/global) sqlite docs for more information
+on account-scoped databases.
+
+## Basic usage
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+await sqlite.execute(`create table if not exists kv(
+  key text unique,
+  value text
+)`);
+
+const key = crypto.randomUUID();
+await sqlite.execute({
+  sql: `insert into kv(key, value) values(?, ?)`,
+  args: [key, "value1"],
+});
+const result = await sqlite.execute({
+  sql: `select * from kv where key = ?`,
+  args: [key],
+});
+
+console.log(result);
+// {
+//   columns: [ "key", "value" ],
+//   columnTypes: [ "TEXT", "TEXT" ],
+//   rows: [ { key: "d65991f8-6f03-4275-bcf1-1fdb1164e153", value: "value1" } ],
+//   rowsAffected: 0,
+//   lastInsertRowid: null
+// }
+
+const rows: { key: string; value: string }[] = result.rows as any;
+
+console.log(rows); // [ { key: "d65991f8-6f03-4275-bcf1-1fdb1164e153", value: "value1" } ]
+```
+
+## Create a table
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+await sqlite.execute(`create table if not exists kv(
+  key text unique,
+  value text
+)`);
+```
+
+## Get data
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+console.log(await sqlite.execute(`select key, value from kv`));
+```
+
+## Insert data
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+await sqlite.execute({
+  sql: `insert into kv(key, value) values (:key, :value)`,
+  args: { key: "specialkey", value: "specialvalue" },
+});
+```
+
+## Delete data
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+await sqlite.execute({
+  sql: `delete from kv where key = :key`,
+  args: { key: "specialkey" },
+});
+```
+
+## Batch queries
+
+```ts
+import { sqlite } from "https://esm.town/v/std/sqlite/main.ts";
+
+const charge = 10;
+
+export const batchSqlite = await sqlite.batch([
+  `create table if not exists accounts(person_id text unique, balance integer)`,
+  {
+    sql:
+      `update accounts set balance = balance - :charge where person_id = 'Bob'`,
+    args: { charge },
+  },
+  {
+    sql:
+      `update accounts set balance = balance + :charge where person_id = 'Alice'`,
+    args: { charge },
+  },
+]);
+```

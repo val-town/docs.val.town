@@ -1,0 +1,294 @@
+/* ---------- */
+/* Typography */
+/* ---------- */
+
+/* Sprig Sans, normal */
+@font-face {
+  font-family: "Sprig Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/sprig-sans-regular.woff2) format("woff2");
+}
+
+/* Sprig Sans, bold */
+@font-face {
+  font-family: "Sprig Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/sprig-sans-bold.woff2) format("woff2");
+}
+
+/* Monospace, normal */
+@font-face {
+  font-family: "iA Writer Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ia-writer-mono@5.3.0/latin-400-normal.woff2)
+    format("woff2");
+}
+
+/* --------------------------------- */
+/* Reset, custom properties, globals */
+/* --------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --beige: #f8f4f2;
+  --green: #9bab7f;
+  --orange: #b27a59;
+  --purple: #8f7fab;
+  --blue: #0e99e9;
+
+  --sprig-sans: "Sprig Sans", system-ui, sans-serif;
+  --writer-mono: "iA Writer Mono", Menlo, monospace;
+
+  --content-max-width: 760px;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--sprig-sans);
+  color: var(--black);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+
+  ::selection {
+    color: var(--white);
+    background: var(--purple);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 1. Green for internal docs links */
+/* 2. Blue for val.town and val.run links */
+/* 3. Orange for any other external links */
+a {
+  --link: var(--green);
+  color: var(--black);
+  text-decoration-color: var(--link);
+  text-underline-offset: 2px;
+  border-radius: 2px;
+
+  &[href^="http://"],
+  &[href^="https://"] {
+    --link: var(--orange);
+  }
+
+  &[href*="//val.town"],
+  &[href*=".val.town"],
+  &[href*="//val.run"],
+  &[href*=".val.run"],
+  &[href*="@val.town"] {
+    --link: var(--blue);
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--link);
+    --highlight: color-mix(in srgb, var(--link) 30%, var(--white));
+    background: var(--highlight);
+    outline: 2px solid var(--highlight);
+  }
+}
+
+blockquote {
+  margin: 0;
+  padding-inline: 16px;
+  padding-block: 4px;
+  border-left: 2px solid var(--orange);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: color-mix(in srgb, var(--orange) 30%, var(--white));
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: calc(14 / 16 * 1rem);
+
+  & th,
+  & td {
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--beige);
+  }
+
+  & th {
+    font-weight: 600;
+  }
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+code {
+  font-family: var(--writer-mono);
+  font-size: 0.9rem;
+  padding: 0.1em 0.3em;
+  background-color: var(--beige);
+  border-radius: 4px;
+}
+
+pre {
+  font-family: var(--writer-mono);
+  padding: 16px;
+  overflow-x: auto;
+  background-color: var(--beige);
+  border-radius: 4px;
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+.code-block {
+  position: relative;
+}
+
+.code-block .copy-code {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  font-size: calc(12 / 16 * 1rem);
+  background: var(--white);
+  border: 1px solid var(--beige);
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.code-block:hover .copy-code,
+.code-block .copy-code:focus-visible {
+  opacity: 1;
+}
+
+.code-block .copy-code:hover {
+  color: var(--orange);
+  border-color: color-mix(in srgb, var(--orange) 30%, var(--white));
+}
+
+.code-block .copy-code.copied {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 30%, var(--white));
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .code-block .copy-code {
+    opacity: 1;
+  }
+}
+
+hr {
+  border-style: solid;
+  border-color: var(--beige);
+  margin-block: 16px;
+}
+
+/* ------------------- */
+/* Syntax highlighting */
+/* ------------------- */
+
+.hljs {
+  color: var(--black);
+  background: transparent;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+  color: color-mix(in srgb, var(--black) 50%, var(--white));
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name {
+  color: color-mix(in srgb, var(--purple) 80%, var(--black));
+}
+
+.hljs-built_in,
+.hljs-type,
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-section {
+  color: color-mix(in srgb, var(--blue) 80%, var(--black));
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-addition {
+  color: color-mix(in srgb, var(--green) 80%, var(--black));
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-deletion {
+  color: color-mix(in srgb, var(--orange) 80%, var(--black));
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}

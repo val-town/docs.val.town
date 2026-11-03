@@ -1,0 +1,49 @@
+#lockup {
+  display: flex;
+  align-items: center;
+
+  .logo {
+    background: unset;
+    margin-right: 12px;
+
+    &:hover {
+      color: var(--blue);
+      background: revert;
+      outline: revert;
+    }
+
+    svg[data-logo="mobile"] {
+      display: none;
+    }
+
+    svg[data-logo="desktop"] {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      svg[data-logo="mobile"] {
+        display: block;
+      }
+
+      svg[data-logo="desktop"] {
+        display: none;
+      }
+    }
+  }
+
+  .slash {
+    margin-top: -4px;
+  }
+
+  .docs {
+    background: unset;
+    margin-top: -8px;
+    margin-left: 6px;
+
+    &:hover {
+      color: var(--green);
+      background: revert;
+      outline: revert;
+    }
+  }
+}

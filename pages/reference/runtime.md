@@ -1,0 +1,48 @@
+---
+title: Runtime
+description: Val Town uses the Deno runtime to run your code
+updated: 2026-09-08
+---
+
+Val Town code runs on the [Deno](https://deno.com/) runtime.
+
+- TypeScript and TSX are available for all vals, and at the time of this writing
+  we support TypeScript 5.9.2.
+- There is no filesystem access permitted - but you _can_ store file-like
+  objects using [Blob storage](/reference/std/blob).
+- `--allow-net` is enabled, so they can make HTTP requests.
+- Vals have access to [environment variables](/reference/environment-variables).
+- The experimental [Temporal API](https://tc39.es/proposal-temporal/docs/) is
+  enabled.
+
+## Included environment
+
+- `fetch` to make HTTP requests
+- `import` from npm and https
+
+- [Custom Types](https://www.val.town/docs/types) — View the custom types we
+  support
+
+### Versions
+
+We run the same version of Deno, V8, and TypeScript for all vals.
+
+At the time of this writing (likely out of date), we run:
+
+- Deno 2.9.6
+- V8 14.0.365.5-rusty
+- TypeScript 5.9.2
+
+- [Versions](https://www.val.town/v/std/deno_version) — View up-to-date versions
+  of Deno, v8, and TypeScript we run
+
+### Outbound IP addresses
+
+Vals will access other resources from the following outbound IP addresses: you
+can use these if you need to whitelist IP addresses for a service like a
+database.
+
+```
+74.220.50.0/24
+74.220.58.0/24
+```

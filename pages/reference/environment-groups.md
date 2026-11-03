@@ -1,0 +1,20 @@
+---
+title: Environment groups
+description: Share environment variables in organizations
+---
+
+> **Note**
+> This feature is only available to organization accounts
+
+When you set [environment variables](/reference/environment-variables) in a val, they are only available
+to that val. Within an organization, you can create **environment variable groups** to
+share environment variables between multiple vals.
+
+![Screenshot of the environment groups interface with one group](/images/reference-environment-groups-1c1b0c11.webp)
+
+To use environment groups, go to your organization's settings and to the **Environment groups**
+menu item. Name a group, and add some environment variables to it.
+
+Then, for any val in your organization, you can go to that val's **Environment variables** settings
+and at the bottom of the page, link the environment group to that val. This will include all of
+the variables from the environment variable group whenever the val runs.

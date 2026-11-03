@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "valtown-docs",
+  "main": "index.tsx",
+  // Client scripts use function.toString(); keep them free of injected name helpers.
+  "keep_names": false,
+  "compatibility_date": "2026-11-03",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "rules": [
+    {
+      "type": "Text",
+      "globs": [
+        "**/*.md",
+        "**/*.css",
+        "**/*.html"
+      ],
+      "fallthrough": true
+    }
+  ],
+  "build": {
+    "command": "npm run build",
+    "watch_dir": [
+      "pages",
+      "components",
+      "routes",
+      "scripts",
+      "base.css",
+      "lib",
+      "public"
+    ]
+  },
+  "assets": {
+    "directory": "./static",
+    "html_handling": "none"
+  }
+}

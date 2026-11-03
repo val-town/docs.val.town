@@ -1,0 +1,66 @@
+---
+title: Environment variables
+description: Using environment variables to store secrets that vals can securely access
+updated: 2026-08-17
+---
+
+You can store secrets, keys, and API tokens as **Environment Variables** via the
+val's left side bar.
+
+![Environment variables in the left sidebar](/images/reference-environment-variables-3e2b50f5.webp)
+
+Environment variables can be accessed via `Deno.env` or `process.env` within any
+file in your val.
+
+- The "key" and "value" of each environment variable can be any string
+- Vals can't set environment variables programmatically at runtime: Environment
+  variables are only set via the settings page or the API/SDK. Trying to update
+  an environment variable from within your code, for example by using
+  `Deno.env.set`, is a no-op.
+
+Newly set or updated environment variables are picked up by your val on the very
+next HTTP request — no redeploy needed.
+
+### Deno.env
+
+This uses the Deno-default
+[Deno.env](https://docs.deno.com/runtime/manual/basics/env_variables) variable,
+which is available globally.
+
+```ts
+const secret = Deno.env.get("someSdkSecret");
+export let sdk = new SomeSDK(secret);
+```
+
+### process.env
+
+This is the conventional way to access environment variables when you're in a
+Node.js environment.
+
+```ts
+const secret = process.env.someSdkSecret;
+export let sdk = new SomeSDK(secret);
+```
+
+## Environment variables are private
+
+It is safe to reference environment variables in public vals. Others can see
+that they're being used, but not their values.
+
+For example, in this public val, you can see that I'm using a Discord bot's
+environment variable, but you cannot run this code or get the value of the
+environment variable.
+
+<iframe src="https://www.val.town/embed/stevekrouse/sendDiscordDMExample?v=3" class="val-embed" loading="lazy" style="height:180px"></iframe>
+
+If you expose an HTTP or Email trigger, the underlying code can be _triggered_
+by anyone who knows the URL or email address, but they still can't access your
+environment variables directly. This is how server-side code normally works. If
+someone wants to run your code with _their_ environment variables, they need to
+_remix_ your val and run their copy.
+
+## Groups
+
+Within organization accounts, you can create
+[environment groups](/reference/environment-groups) to share environment
+variables between multiple vals.
