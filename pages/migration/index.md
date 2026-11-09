@@ -39,6 +39,8 @@ Ask the user if they want you to build and maintain html tracker of the migratio
 - Todos: remaining action, related val/domain/email row, who handles it (user, main agent, or named subagent), and when it will be tackled.
 
 Update the tracker as you work, not just at the end. Link todos back to the affected rows. Keep status and action labels short, with details on hover. Use a checkmark for completed work.
+
+If you run into problems with these migration guides, open a GitHub issue at https://github.com/val-town/docs.val.town/issues with details, or submit a pull request with a fix. If you migrate to a platform we haven't covered, contribute a guide for it in a pull request so others can benefit.
 ```
 
 ## Migration guides
