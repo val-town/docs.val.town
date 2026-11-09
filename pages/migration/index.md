@@ -6,17 +6,16 @@ updated: 2026-11-07
 
 [Val Town is winding down.](https://blog.val.town/winding-down) Code on Val Town will become read-only on December 10, 2026. Apps on Val Town ("vals") will continue running until January 10, 2027. We've prepared this migration guide for moving your vals to other platforms before then.
 
-
 For support, email us at [support@val.town](mailto:support@val.town) — we are here to help.
 
 ## Migrating with your AI agent
 
 To migrate with an AI agent, copy-paste this prompt:
 
-```txt
+```md
 Val Town is winding down.
 
-I need to migrate app on Val Town ("vals") to another platform.
+I need to migrate apps on Val Town ("vals") to another platform.
 
 1. Help me install the Val Town plugin / MCP server so you can access my account: https://docs.val.town/guides/prompting/plugin
 2. Help me figure out which vals I care about enough to move over
@@ -24,11 +23,12 @@ I need to migrate app on Val Town ("vals") to another platform.
 4. Propose a concise migration plan for me to approve
 
 For information on the Val Town platform, reference:
+
 - https://github.com/val-town/plugins/tree/main/plugin/skills
 - https://val.town/townie/system-prompt
 - https://docs.val.town
 
-[Val Town uses Deno as its JavaScript runtime](https://docs.val.town/reference/runtime), and [Deno itself is winding down](https://deno.com/blog/cloudflare). The core maintainers won't support Deno beyond October 2027, so we recommend moving to Node, Bun, or a provider-specific runtime like Cloudflare Workers or Vercel Functions
+[Val Town uses Deno as its JavaScript runtime](https://docs.val.town/reference/runtime), and [Deno itself is winding down](https://deno.com/blog/cloudflare). The core maintainers won't support Deno beyond October 2027, so we recommend moving to Node, Bun, or a provider-specific runtime like Cloudflare Workers or Vercel Functions.
 
 Ask the user if they want you to build and maintain html tracker of the migration progress. Recommended tables:
 
