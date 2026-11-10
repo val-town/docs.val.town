@@ -1,11 +1,13 @@
 ---
-title: Redirecting custom val.run URLs
+title: Redirecting val.run URLs
 description: "Val Town migration guide: Redirects"
 updated: 2026-11-10
 ---
 
-If you'd like any `val.run` URLs you have set up to continue working, you can add redirects to their new locations.
-To add a redirect, you can manually add redirects in your val settings, [account settings][], or [org settings][] pages, use the [plugin][] / [MCP server][], or ask [Townie][] to set it up.
+If you'd like your `val.run` URLs to continue working, you can add redirects to their new locations.
+You can manually add redirects in your val settings, [account settings][], or [org settings][] pages, use the [plugin][] / [MCP server][], or ask [Townie][] to set it up.
+
+Redirects default to keeping the path and query string, so `https://bloggy.val.run/hello-world?ref=home` goes to `https://example.com/hello-world?ref=home`. You can turn this off to send every request to the exact URL you set instead.
 
 As soon as a redirect is set up, the val stops receiving requests. We recommend adding redirects after you have completely migrated the val off of Val Town.
 If your val is a webhook, many webhooks will not follow redirects. Instead, we recommend updating the URLs with each webhook provider that you are using.

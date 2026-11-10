@@ -34,7 +34,7 @@ For a static site, add redirects in its Redirects/Rewrites settings. An SPA rewr
 Test HTTPS, apex/`www`, nested paths, queries, redirects, and email delivery. If using an access gateway, verify the application rejects requests without the gateway’s valid JWT; disabling the default hostname alone is insufficient.
 
 Stop old writes/jobs and sync final data before switching traffic.
-To redirect custom subdomains on `val.run`, [add redirects](/migration/redirects) once the migrated app is verified.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
 Transfer registration only if requested and track it separately.
 
 Keep prior DNS settings and backups. Rolling back after new data is written requires reconciliation.

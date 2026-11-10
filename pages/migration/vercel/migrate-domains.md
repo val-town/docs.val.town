@@ -40,7 +40,7 @@ If DNS hosting is also moving, copy all existing records and handle DNSSEC corre
 
 Set the preferred apex/`www` redirect in Vercel’s domain settings. For app route redirects, use the framework or [Vercel redirects](https://vercel.com/docs/redirects), preserving paths and query parameters. Do not use a broad redirect that captures APIs or login callbacks.
 
-To redirect custom subdomains on `val.run`, [add redirects](/migration/redirects) once the migrated app is verified.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
 
 ## Verify and recover
 

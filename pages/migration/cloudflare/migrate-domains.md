@@ -41,6 +41,6 @@ Follow [Cloudflare’s transfer procedure](https://developers.cloudflare.com/reg
 
 Check HTTPS, apex/`www`, paths, queries, redirects, and mail delivery. Redirect aliases to the chosen canonical URL without losing path/query information.
 
-To redirect custom subdomains on `val.run`, [add redirects](/migration/redirects) once the migrated app is verified.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
 
 Keep prior DNS records and rollback steps.
