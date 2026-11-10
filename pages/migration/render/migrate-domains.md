@@ -33,6 +33,8 @@ For a static site, add redirects in its Redirects/Rewrites settings. An SPA rewr
 
 Test HTTPS, apex/`www`, nested paths, queries, redirects, and email delivery. If using an access gateway, verify the application rejects requests without the gateway’s valid JWT; disabling the default hostname alone is insufficient.
 
-Stop old writes/jobs and sync final data before switching traffic. Record unresolved `*.val.run` redirects; Render cannot change Val Town's DNS. Transfer registration only if requested and track it separately.
+Stop old writes/jobs and sync final data before switching traffic.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
+Transfer registration only if requested and track it separately.
 
 Keep prior DNS settings and backups. Rolling back after new data is written requires reconciliation.

@@ -41,6 +41,6 @@ Follow [Cloudflare’s transfer procedure](https://developers.cloudflare.com/reg
 
 Check HTTPS, apex/`www`, paths, queries, redirects, and mail delivery. Redirect aliases to the chosen canonical URL without losing path/query information.
 
-For old `*.val.run` links, use Val Town’s supported redirect mechanism if available. You cannot change DNS for Val Town’s domain. Record any unresolved redirects explicitly.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
 
 Keep prior DNS records and rollback steps.

@@ -30,10 +30,12 @@ For information on the Val Town platform, reference:
 
 [Val Town uses Deno as its JavaScript runtime](https://docs.val.town/reference/runtime), and [Deno itself is winding down](https://deno.com/blog/cloudflare). The core maintainers won't support Deno beyond October 2027, so we recommend moving to Node, Bun, or a provider-specific runtime like Cloudflare Workers or Vercel Functions.
 
+After each migrated app is verified and its data is synced, redirect its `*.val.run` URLs to the new URL so existing links keep working. Confirm the new URL with me before setting each redirect, and update webhook URLs with their providers directly. See https://docs.val.town/migration/redirects
+
 Ask the user if they want you to build and maintain html tracker of the migration progress. Recommended tables:
 
 - Agents: main agent or subagent, model, current work. Show active agents only.
-- Vals: name, % done (sort: low to high), status, remaining actions, live URL, hosting/data dashboard links, repo/folder. Put original and migrated line counts at the far right if measured.
+- Vals: name, % done (sort: low to high), status, remaining actions, live URL, val.run redirect, hosting/data dashboard links, repo/folder. Put original and migrated line counts at the far right if measured.
 - Domains: domain, current registrar/DNS account, destination account, hosting status, registrar-transfer status, remaining actions.
 - Email addresses: old address, replacement address, sending/forwarding/inbound handler, verification status, remaining actions.
 - Todos: remaining action, related val/domain/email row, who handles it (user, main agent, or named subagent), and when it will be tackled.
@@ -56,3 +58,5 @@ If you run into problems with these migration guides, open a GitHub issue at htt
 - [Render](/migration/render)
 
 - [GitHub](/migration/github)
+
+- [Redirects](/migration/redirects)

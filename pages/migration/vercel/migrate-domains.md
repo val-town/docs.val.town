@@ -40,7 +40,7 @@ If DNS hosting is also moving, copy all existing records and handle DNSSEC corre
 
 Set the preferred apex/`www` redirect in Vercel’s domain settings. For app route redirects, use the framework or [Vercel redirects](https://vercel.com/docs/redirects), preserving paths and query parameters. Do not use a broad redirect that captures APIs or login callbacks.
 
-Old `*.val.run` URLs require Val Town’s supported redirect mechanism. You cannot move Val Town’s DNS into your account. Record unresolved old links separately.
+To redirect `val.run` URLs, [add redirects](/migration/redirects) once the migrated app is verified.
 
 ## Verify and recover
 
