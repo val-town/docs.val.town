@@ -67,6 +67,10 @@ export default function Layout({
       </head>
 
       <body>
+        <aside class="migration-announcement" aria-label="Val Town shutdown">
+          Val Town is shutting down on Jan 10, 2027.{" "}
+          <a href="/migration">Learn how to migrate off.</a>
+        </aside>
         <Header />
         <Sidebar pathname={pathname} />
         <Content title={title} updated={updated}>

@@ -3,7 +3,7 @@
 import { type Context, type Next } from "hono";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 import matter from "gray-matter";
-import { Marked, type Tokens } from "marked";
+import { Marked, Parser, TextRenderer, type Tokens } from "marked";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -45,6 +45,8 @@ export function renderPage(
   const updated = data.updated ? toIsoDate(data.updated) : null;
 
   const headings: Heading[] = [];
+  const textParser = new Parser();
+  const textRenderer = new TextRenderer();
   const usedSlugs = new Set<string>();
   const slugify = (text: string) => {
     const base = text
@@ -75,7 +77,11 @@ export function renderPage(
       ) {
         const slug = slugify(token.text);
         if (token.depth === 2 || token.depth === 3) {
-          headings.push({ id: slug, level: token.depth, text: token.text });
+          headings.push({
+            id: slug,
+            level: token.depth,
+            text: textParser.parseInline(token.tokens, textRenderer),
+          });
         }
         const inner = this.parser.parseInline(token.tokens);
         if (token.depth === 1) {
