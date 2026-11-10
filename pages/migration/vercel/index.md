@@ -8,7 +8,8 @@ Use this as a reference, not a required sequence. Adapt the approach and code to
 
 ## Pre-requisites for your human fingers
 
-Create a [Vercel account](https://vercel.com/signup), choose the destination team, and connect the GitHub repo. Check the [plan](https://vercel.com/docs/plans) against the app’s usage and commercial requirements. Keep preview data separate from production.
+1. If you don’t already have one, make a [Vercel account](https://vercel.com/signup).
+2. Install the [Vercel plugin/MCP](https://vercel.com/docs/agent-resources/vercel-mcp) and authenticate.
 
 ## Mapping Val Town to Vercel
 
