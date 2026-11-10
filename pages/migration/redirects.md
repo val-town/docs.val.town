@@ -43,9 +43,8 @@ Scroll to the section named _Val.run redirects_ to add or edit any HTTP endpoint
 
 ## Timeline
 
-You can add and edit your redirects until January 9, 2027.
-These redirects will be temporary redirects until then.
-On January 10, 2027 any redirects that you have set will become permanent.
+You can add and edit your redirects until December 10, 2026, when code on Val Town becomes read-only.
+Redirects stay temporary until then. On December 10, 2026, any redirects that you have set will become permanent.
 
 [account settings]: https://val.town/settings/domains
 [org settings]: https://val.town/orgs/_/settings/domains
