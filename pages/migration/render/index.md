@@ -8,7 +8,8 @@ Use this as a reference, not a required sequence. Adapt the approach and code to
 
 ## Pre-requisites for your human fingers
 
-Create a [Render account](https://dashboard.render.com/register), select the workspace, and connect the repo. Choose the [service type](https://render.com/docs/service-types) the app actually needs. Check [pricing](https://render.com/pricing) and [free-service limits](https://render.com/docs/free), including idle spin-down and storage.
+1. If you don’t already have one, make a [Render account](https://dashboard.render.com/register).
+2. Install the [Render plugin/MCP](https://render.com/docs/mcp-server) and authenticate.
 
 ## Mapping Val Town to Render
 
