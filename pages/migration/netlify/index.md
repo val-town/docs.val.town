@@ -8,7 +8,8 @@ Use this as a reference, not a required sequence. Adapt the approach and code to
 
 ## Pre-requisites for your human fingers
 
-Create a [Netlify account](https://app.netlify.com/signup), select the team, and connect the repo. Check current [plans](https://www.netlify.com/pricing/) for functions, storage, and private-site access. Use isolated test data for Deploy Previews.
+1. If you don’t already have one, make a [Netlify account](https://app.netlify.com/signup).
+2. Install the [Netlify plugin/MCP](https://docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-overview/#mcp-server-support) and authenticate.
 
 ## Mapping Val Town to Netlify
 
