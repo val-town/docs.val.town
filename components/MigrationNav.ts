@@ -33,6 +33,7 @@ export const migrationNav: NavItem = {
     { label: "Overview", href: "/migration" },
     { label: "Where to migrate", href: "/migration/where-to-migrate" },
     { label: "Store code on GitHub", href: "/migration/github" },
+    { label: "Redirect val.run URLs", href: "/migration/redirects" },
     provider("Cloudflare", "cloudflare"),
     provider("Vercel", "vercel"),
     provider("Netlify", "netlify"),

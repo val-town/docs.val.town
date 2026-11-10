@@ -38,7 +38,8 @@ curl -sS -o /dev/null -D - 'https://www.example.com/existing/path?check=1'
 
 Replace the domain/path with yours. Check the primary host, alias redirects, path/query preservation, certificate validity, and application behavior—not just an HTTP 200.
 
-Update OAuth callbacks and external webhooks. If old `*.val.run` links must redirect, use Val Town’s supported routing mechanism; Netlify cannot change DNS for Val Town’s domain.
+Update OAuth callbacks and external webhooks.
+To redirect custom subdomains on `val.run`, [add redirects](/migration/redirects) once the migrated app is verified.
 
 ## Finish
 
