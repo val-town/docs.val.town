@@ -58,3 +58,5 @@ If you run into problems with these migration guides, open a GitHub issue at htt
 - [Render](/migration/render)
 
 - [GitHub](/migration/github)
+
+- [Redirects](/migration/redirects)

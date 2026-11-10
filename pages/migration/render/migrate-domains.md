@@ -35,5 +35,6 @@ Test HTTPS, apex/`www`, nested paths, queries, redirects, and email delivery. If
 
 Stop old writes/jobs and sync final data before switching traffic.
 To redirect custom subdomains on `val.run`, [add redirects](/migration/redirects) once the migrated app is verified.
+Transfer registration only if requested and track it separately.
 
 Keep prior DNS settings and backups. Rolling back after new data is written requires reconciliation.
