@@ -37,5 +37,6 @@
   "assets": {
     "directory": "./static",
     "html_handling": "none"
-  }
+  },
+  "previews": {}
 }
