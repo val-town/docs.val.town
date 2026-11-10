@@ -1,12 +1,9 @@
-import { migrationNav } from "./MigrationNav.ts";
-
 export type NavItem =
   | { label: string; href: string }
   | { label: string; items: NavItem[]; collapsed?: boolean };
 
 export const nav: NavItem[] = [
   { label: "Getting started", href: "/" },
-  migrationNav,
   {
     label: "Vals",
     items: [
