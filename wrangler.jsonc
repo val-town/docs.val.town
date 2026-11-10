@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "docs-val-town",
+  "name": "valtown-docs",
   "main": "index.tsx",
   // Client scripts use function.toString(); keep them free of injected name helpers.
   "keep_names": false,
@@ -8,7 +8,6 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "previews": {},
   "observability": {
     "enabled": true
   },

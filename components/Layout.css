@@ -5,34 +5,14 @@ body {
   --header-h: 72px;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns:
     var(--sidebar-w)
     minmax(0, var(--content-w)) var(--toc-w) 1fr;
   grid-template-areas:
-    "announcement announcement announcement announcement"
     "header  header header  header"
     "sidebar main   toc     ."
     "sidebar footer toc     .";
-}
-
-.migration-announcement {
-  grid-area: announcement;
-  padding: 11px 24px;
-  border-bottom: 1px solid #ddd2e9;
-  background: #eee8f5;
-  color: #362449;
-  text-align: center;
-  font-size: 14px;
-  line-height: 22px;
-
-  a {
-    margin-left: 6px;
-    color: inherit;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -45,7 +25,6 @@ body {
   body {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-      "announcement"
       "header"
       "main"
       "footer";

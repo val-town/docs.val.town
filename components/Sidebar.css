@@ -1,6 +1,5 @@
 #sidebar {
   position: sticky;
-  inset: auto; /* Reset the browser's default popover insets. */
   top: var(--header-h);
   grid-area: sidebar;
   align-self: start;

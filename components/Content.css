@@ -1,24 +1,9 @@
 #content {
   grid-area: main;
-  min-width: 0;
   width: 100%;
   max-width: var(--content-max-width);
   padding: 20px 80px;
   border-right: 2px solid var(--beige);
-
-  .table-scroll {
-    max-width: 100%;
-    overflow-x: auto;
-
-    table {
-      min-width: 36rem;
-    }
-
-    th,
-    td {
-      overflow-wrap: anywhere;
-    }
-  }
 
   menu {
     width: 100%;
