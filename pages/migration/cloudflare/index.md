@@ -6,8 +6,6 @@ updated: 2026-11-07
 
 ## Pre-requisites for your human fingers
 
-Before you let your agent loose to do the migration, your human fingers are needed to (1) set up the cloudflare account, (2) install & authenticate the MCP server, and (3) enable some Cloudflare services:
-
 1. If you don’t already have a Cloudflare account, [create one free here](https://dash.cloudflare.com/sign-up).
 2. [Install the Cloudflare MCP](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/) and authenticate
 3. Enable the following Cloudflare services:
