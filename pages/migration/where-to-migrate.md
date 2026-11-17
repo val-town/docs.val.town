@@ -1,7 +1,7 @@
 ---
 title: "Where to migrate"
 description: "Val Town migration guide: Where to migrate"
-updated: 2026-11-07
+updated: 2026-11-17
 ---
 
 We've put together a shortlist of replacements for these core Val Town features:
@@ -171,3 +171,9 @@ An adjacent category of tools worth mentioning are in-browser code editors. Thes
 - [Observable](https://observablehq.com/)
 - [CodeSandbox](https://codesandbox.io/)
 - [GitHub Codespaces](https://github.com/features/codespaces)
+
+## Community guides
+
+> If you'd like to contribute a guide for your own service to the list below, edit [this page](https://github.com/val-town/docs.val.town/edit/main/pages/migration/where-to-migrate.md) and open a PR.
+
+- [Migrate to Easel.sh](https://www.easel.sh/docs/migration/val-town)
